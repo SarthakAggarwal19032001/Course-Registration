@@ -1,0 +1,21 @@
+.fontsize{
+    font-size: larger;
+}
+.redclass{
+    color: red;
+}
+.css-table{
+    display:table;
+}
+.css-table-cell{
+    display: table-cell;
+    padding-bottom: 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+.css-table-row{
+    display: table-row;
+}
+input, select{
+    width: 70%;
+}

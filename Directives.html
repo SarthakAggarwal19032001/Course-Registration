@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>Built-in Directives</title>
+        <script src="lib/angular.js"></script>
+        <script src="jss/controllers.js"></script>
+        <script src="jss/app.js"></script>
+        <link href="style/style.css" rel="stylesheet"/>
+    </head>
+    <body style="background-color:lightseagreen;" ng-controller="registerctrl" ng-init="fs='true'">
+        <header style="text-align: center; color: black; font-style: italic; font-size: larger;"><h1><strong>Course Registration</strong></h1></header>
+        <figure><img align="Right" src="images/study.jpg" alt="Image Unavailable" width="400" height="240">
+        <figcaption style="color: brown;"><h2>Keep Learning</h2></figcaption>
+        </figure>
+    <section ng-class="{fontsize:fs,redClass:true}"></section>
+    <section class="css-section">
+        <form class="css-form" >
+            <section class="css-table" style=" border: 1px; border-style: dashed; border-color: brown;">
+                <section class="css-table-row">
+                    <section class="css-table-cell">
+                        <label for="username">Name:</label>
+                    </section>
+                    <section class="css-table-cell">
+                        <input type="text" ng-model="name" class="css-input"/>
+                    </section>
+                </section>
+                <section class="css-table-row">
+                    <section class="css-table-cell">
+                        <label for="age">Gender:</label>
+                    </section>
+                    <section class="css-table-cell">
+                        <section class="css-table-row">
+                            <div class="css-table-cell">
+                                <input type="radio" ng-model="gender" value="male" class="css-radio"/>Male
+                            </div>
+                        <div class="css-table-cell">
+                            <input type="radio" ng-model="gender" value="female" class="css-radio"/>Female
+                        </div>
+                        </section>
+                    </section>
+                </section>
+                <section class="css-table-row" ng-if="gender=='male'">
+                    <section class="css-table-cell">
+                        <label for="gender">Contact Number:</label>
+                    </section>
+                    <section class="css-table-cell">
+                        <input type="text" ng-model="$parent.contactnumber" class="css-input"/>
+                    </section>
+                </section>
+                <section class="css-table-row">
+                    <section class="css-table-cell">
+                        <label for="hobbies">Training Mode:</label>
+                    </section>
+                    <section class="css-table-cell">
+                    <select ng-model="trainingmode" ng-change="getcourses()" class="select">
+                        <option value="VCR">Virtual Classroom
+                        <option value="CR">Online Classroom
+                    </select>
+                </section>
+            </section>
+            <section class="css-table-row">
+                <section class="css-table-cell">
+                    <label for="hobbies">Courses Offered:</label>
+                </section>
+                <section class="css-table-cell">
+                    <select ng-model="courseselected" class="select">
+                        <option ng-repeat="course in courses">Course {{$index}}:{{course.coursename}}
+                    </select>
+                </section>
+            </section>
+            
+                <section class="css-table-cell">
+                    <label for="hobbies">Level of Training</label>
+                </section>
+                <section class="css-table-cell">
+                    <select ng-model="levelselected" class="select">
+                        <option value="Basic">Level 1</option>
+                        <option value="Intermediate">Level 2</option>
+                        <option value="Advanced">Level 3</option>
+                        <option value="others" ng-selected="true">Others</option>
+                    </select>
+                </section>
+                <section class="css-table-cell">
+                    <span ng-switch on="levelselected">
+                        <span ng-switch-when="Basic">Level Selected: Basic</span>
+                    
+                    <span ng-switch-when="Intermediate">Level Selected: Intermediate  </span>
+                    <span ng-switch-when="Advanced">Level Selected: Advanced</span>
+                    <span ng-switch-default>Level Selected:Overview Session</span>
+                    </span>
+                </section>
+            </section>
+            <section class="css-table-row">
+                <section class="css-table-cell"></section>
+                <section class="css-table-cell">
+                    <button type="button" ng-click="save()" class="button" style="background-color: brown;">Submit</button>
+                </section>
+            </section>
+        </section>
+        </form>
+    </section>
+    <fieldset style="color: grey;" class="css-fieldset" ng-show="message.length > 0">
+        <legend>Final Details</legend>
+        <ul><strong><em>
+            {{message}}
+        </em></strong>
+        </ul>
+    </fieldset>
+    <aside>Copy Right Reserved &copy; &nbsp;&nbsp;&nbsp;&reg;
+    </aside>
+    <footer style=" border: 2px; border-style: dashed; border-color:black;">
+        <p><strong>&lt;Made By Sarthak Aggarwal using Angular/&gt;</strong></p>
+    </footer>
+    </body>
+</html>
